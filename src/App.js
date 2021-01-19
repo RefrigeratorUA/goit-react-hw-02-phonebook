@@ -1,12 +1,11 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import ContactForm from './ContactForm/ContactForm';
 import PhonebookList from './PhonebookList/PhonebookList';
 import Filter from './Filter/Filter';
 
 export default class App extends Component {
-  static defaultProps = {
+  state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
       { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -14,16 +13,6 @@ export default class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-  };
-
-  static propTypes = {
-    contacts: PropTypes.array,
-    filter: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  };
-
-  state = {
-    contacts: this.props.contacts,
-    filter: this.props.filter,
   };
 
   handleAddContact = (nameFromForm, numberFromForm) => {
